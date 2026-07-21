@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鄭柏瑞 ｜ 2026 第 35 屆時報金犢獎 得獎作品</title>
+<style>
+  :root{ --bg:#f5f6f8; --card:#fff; --ink:#25313b; --sub:#68757f; --line:#e2e7ec; --accent:#2f4858; --gold:#b5842a; }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#12171c; --card:#1b2229; --ink:#e7ecf0; --sub:#9aa7b2; --line:#2b343d; --accent:#8fb0c4; --gold:#d8b25e; }
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:36px 20px 60px; }
+  header{ border-bottom:2px solid var(--accent); padding-bottom:16px; margin-bottom:26px; }
+  h1{ font-size:24px; letter-spacing:1px; color:var(--accent); }
+  .meta{ color:var(--sub); font-size:14px; margin-top:6px; }
+  .meta b{ color:var(--gold); }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06); transition:transform .15s, box-shadow .15s; }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.12); }
+  .card img{ width:100%; display:block; aspect-ratio:4/3; object-fit:cover; background:#0002; cursor:zoom-in; }
+  .card .body{ padding:12px 15px 15px; }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--gold); border-radius:4px; padding:2px 9px; letter-spacing:.5px; }
+  .badge.win{ background:var(--accent); }
+  .title{ font-weight:700; font-size:15px; margin:8px 0 3px; }
+  .sub{ color:var(--sub); font-size:12.5px; }
+  footer{ margin-top:34px; color:var(--sub); font-size:12.5px; text-align:center; }
+  /* lightbox */
+  #lb{ position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out; z-index:9; }
+  #lb.on{ display:flex; }
+  #lb img{ max-width:100%; max-height:100%; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,.5); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>鄭柏瑞 ｜ 2026 第 35 屆時報金犢獎 得獎作品</h1>
+    <div class="meta">兩岸最大學生創意設計競賽 ｜ 共 6 件得獎：<b>優勝獎 ×1</b>、<b>優秀獎 ×5</b>　·　全部以生成式 AI 產出 ＋ 規格迭代 ＋ 印刷完稿獨立完成</div>
+  </header>
+  <div class="grid" id="grid"></div>
+  <footer>點擊任一作品可放大檢視　·　指導老師：吳思璿　·　南臺科技大學</footer>
+</div>
+<div id="lb"><img alt=""></div>
+<script>
+  const works = [
+    {img:"works/wangwang_space_log.jpg", title:"《旺旺宇宙飛行日誌》毛絨盲盒系列", sub:"旺旺集團周邊商品設計", win:true, badge:"優勝獎＋優秀獎"},
+    {img:"works/wangwang_red_can.jpg", title:"《旺旺經典：紅罐飛行日記》潮流盲盒", sub:"旺旺集團周邊商品設計", badge:"優秀獎"},
+    {img:"works/fixxbody.jpg", title:"FixxBody《Everybody Fixbody》", sub:"旺旺集團品牌產品形象設計", badge:"優秀獎"},
+    {img:"works/mrhot_spicy.jpg", title:"辣力覺醒，街頭共生（Mr.HOT）", sub:"旺旺集團品牌產品形象設計", badge:"優秀獎"},
+    {img:"works/social_art.jpg", title:"移步換景（社交藝術場）", sub:"旺旺集團品牌產品形象設計", badge:"優秀獎"},
+    {img:"works/baoding_city.jpg", title:"《和美保定・城禮成章》", sub:"保定城市旅遊形象設計", badge:"優秀獎"},
+  ];
+  const grid = document.getElementById("grid");
+  works.forEach(w=>{
+    const c = document.createElement("div"); c.className="card";
+    c.innerHTML = `<img src="${w.img}" alt="${w.title}" loading="lazy">
+      <div class="body"><span class="badge ${w.win?'win':''}">${w.badge}</span>
+      <div class="title">${w.title}</div><div class="sub">${w.sub}</div></div>`;
+    c.querySelector("img").addEventListener("click", ()=>{
+      const lb=document.getElementById("lb"); lb.querySelector("img").src=w.img; lb.classList.add("on");
+    });
+    grid.appendChild(c);
+  });
+  document.getElementById("lb").addEventListener("click", e=> e.currentTarget.classList.remove("on"));
+</script>
+</body>
+</html>
